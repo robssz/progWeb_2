@@ -71,6 +71,11 @@
       <!-- ABA AGENDAMENTO -->
       <div class="tab-content" id="tab-agendamento">
         <h2 class="modal-titulo">Agendar Horário</h2>
+        <?php
+            if (isset($erro)) {
+            echo "<p style='color:red;'>$erro</p>";
+            }
+        ?>
         <form action="agendamento.php" method="POST">
           <div class="campo">
             <label>Nome</label>
