@@ -1,0 +1,248 @@
+*{margin:0;padding:0;box-sizing:border-box}
+ 
+html,body{
+  height:100%;
+  font-family:'Georgia',serif;
+  overflow:hidden;
+  background:#0a0a0a;
+}
+ 
+.background{
+  position:fixed;
+  width:100%;height:100%;
+  object-fit:cover;
+  z-index:0;
+  filter:brightness(38%) contrast(105%);
+}
+ 
+header{
+  position:relative;
+  z-index:5;
+  width:100%;height:100vh;
+  display:flex;
+  flex-direction:column;
+}
+ 
+.logo{
+  width:150px;
+  margin-right:auto;
+  filter:brightness(0) invert(1);
+}
+ 
+.servicos{
+  display:flex;
+  align-items:center;
+  padding:1.6rem 2.5rem;
+  gap:2rem;
+  width:100%;
+}
+ 
+.nav-links{display:flex;gap:2.5rem;list-style:none}
+ 
+.nav-links a{
+  text-decoration:none;
+  color:#f5f0e8;
+  font-size:1.1rem;
+  letter-spacing:.1em;
+  opacity:.88;
+  transition:opacity .25s,color .25s;
+}
+.nav-links a:hover{opacity:1;color:#E2C06A}
+ 
+.btn-orcamento,.btn-submit{
+  background:#C9A84C;
+  color:#0a0a0a;
+  border:none;
+  border-radius:50px;
+  font-family:'Georgia',serif;
+  font-weight:bold;
+  letter-spacing:.05em;
+  cursor:pointer;
+  transition:background .3s,transform .2s;
+  white-space:nowrap;
+}
+.btn-orcamento{
+  display:inline-block;
+  padding:.65rem 1.5rem;
+  font-size:1.1rem;
+  text-decoration:none;
+}
+.btn-submit{
+  width:100%;
+  padding:.75rem;
+  font-size:1rem;
+  letter-spacing:.08em;
+  margin-top:.5rem;
+}
+.btn-orcamento:hover{background:#E2C06A;transform:scale(1.04)}
+.btn-submit:hover{background:#E2C06A;transform:scale(1.02)}
+ 
+/* ── HERO ── */
+.hero-content{
+  position:absolute;
+  top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  text-align:center;
+  z-index:6;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:.3rem;
+  animation:fadeUp 1s ease both;
+}
+ 
+@keyframes fadeUp{
+  from{opacity:0;transform:translate(-50%,calc(-50% + 20px))}
+  to{opacity:1;transform:translate(-50%,-50%)}
+}
+ 
+.hero-welcome{font-size:clamp(1rem,2vw,1.3rem);font-style:italic;color:#f5f0e8;letter-spacing:.05em;opacity:.9}
+.hero-title{font-size:clamp(3rem,8vw,5.5rem);font-weight:bold;letter-spacing:.25em;color:#C9A84C;text-transform:uppercase;line-height:1;text-shadow:0 0 40px rgba(201,168,76,.3)}
+.hero-tagline{font-size:clamp(.78rem,1.4vw,.92rem);color:#f5f0e8;letter-spacing:.12em;opacity:.78;margin-top:.4rem}
+.hero-divider{width:50px;height:1px;background:#C9A84C;opacity:.55;margin-top:1rem}
+ 
+/* ── MODAL ── */
+.modal-overlay{
+  position:fixed;inset:0;
+  background:rgba(0,0,0,.75);
+  z-index:100;
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;pointer-events:none;
+  transition:opacity .3s;
+}
+.modal-overlay.aberto{opacity:1;pointer-events:all}
+ 
+.modal-box{
+  position:relative;
+  background:#111;
+  border:1px solid #C9A84C44;
+  border-top:3px solid #C9A84C;
+  border-radius:8px;
+  padding:2.5rem 2.5rem 2rem;
+  width:90%;max-width:540px;max-height:90vh;
+  overflow-y:auto;
+  transform:translateY(30px);
+  transition:transform .3s;
+  scrollbar-width:thin;
+  scrollbar-color:#C9A84C44 transparent;
+}
+.modal-overlay.aberto .modal-box{transform:translateY(0)}
+ 
+.modal-fechar{
+  position:absolute;top:1rem;right:1.2rem;
+  background:none;border:none;
+  color:#f5f0e8;font-size:1.8rem;
+  cursor:pointer;line-height:1;opacity:.6;
+  transition:opacity .2s;
+}
+.modal-fechar:hover{opacity:1;color:#C9A84C}
+ 
+.modal-titulo{
+  font-size:1.3rem;color:#C9A84C;
+  letter-spacing:.12em;margin-bottom:1.6rem;
+  text-transform:uppercase;font-weight:normal;
+}
+ 
+.modal-tabs{
+  display:flex;
+  margin-bottom:2rem;
+  border-bottom:1px solid #C9A84C44;
+}
+ 
+.tab-btn{
+  flex:1;background:none;border:none;
+  color:#f5f0e8;font-family:'Georgia',serif;
+  font-size:.95rem;letter-spacing:.08em;
+  padding:.7rem 1rem;cursor:pointer;opacity:.5;
+  border-bottom:2px solid transparent;
+  margin-bottom:-1px;
+  transition:opacity .2s,border-color .2s,color .2s;
+}
+.tab-btn.active{opacity:1;color:#C9A84C;border-bottom-color:#C9A84C}
+.tab-btn:hover{opacity:.9}
+ 
+.tab-content{display:none}
+.tab-content.active{display:block}
+ 
+.campo{display:flex;flex-direction:column;gap:.4rem;margin-bottom:1.2rem}
+.campo-linha{display:flex;gap:1rem}
+.campo-linha .campo{flex:1}
+ 
+.campo label{color:#f5f0e8;font-size:.82rem;letter-spacing:.1em;opacity:.75;text-transform:uppercase}
+ 
+.campo input,.campo select,.campo textarea{
+  background:#1a1a1a;
+  border:1px solid #C9A84C44;
+  border-radius:4px;
+  color:#f5f0e8;
+  font-family:'Georgia',serif;
+  font-size:.95rem;
+  padding:.6rem .9rem;
+  outline:none;width:100%;
+  transition:border-color .2s;
+}
+.campo input:focus,.campo select:focus,.campo textarea:focus{border-color:#C9A84C}
+.campo select option{background:#1a1a1a}
+.campo textarea{resize:vertical;min-height:90px}
+ 
+/* ── RESPONSIVO ── */
+ 
+@media(max-width:700px){
+  .servicos{padding:1rem;gap:.8rem}
+  .btn-orcamento{font-size:.75rem;padding:.45rem .8rem}
+  .logo{width:80px}
+  .modal-box{padding:2rem 1.4rem}
+  .campo-linha{flex-direction:column;gap:0}
+
+  .nav-links{display:flex;gap:1rem}
+  .nav-links a{font-size:.78rem;letter-spacing:0}
+}
+
+@media(max-width:480px){
+  .nav-links a{font-size:.68rem}
+  .btn-orcamento{font-size:.68rem;padding:.4rem .65rem}
+  .logo{width:65px}
+}
+ 
+/* ── MODAL CONTATO ── */
+.contato-grid{display:flex;flex-direction:column;gap:1.2rem;margin-bottom:1.8rem}
+ 
+.contato-item{
+  font-family: Arial, Helvetica, sans-serif;
+  display:flex;
+  align-items:flex-start;
+  gap:1rem;
+  padding:.9rem 1rem;
+  background:#1a1a1a;
+  border:1px solid #C9A84C22;
+  border-radius:6px;
+  transition:border-color .2s;
+}
+.contato-item:hover{border-color:#C9A84C66}
+ 
+.contato-icone{font-size:1.4rem;min-width:2rem;text-align:center;margin-top:.1rem}
+ 
+.contato-info{
+  display:flex;
+  flex-direction:column;
+  gap:.2rem;
+  color:#f5f0e8;
+  font-size:.9rem;
+  line-height:1.5;
+}
+ 
+.contato-label{
+  color:#C9A84C;
+  font-size:.75rem;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  margin-bottom:.1rem;
+}
+ 
+.fechado{opacity:.45}
+ 
+.btn-whatsapp{
+  display:block;
+  text-align:center;
+  text-decoration:none;
+}
