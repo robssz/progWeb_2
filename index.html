@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>CAMARIN</title>
+</head>
+<body>
+
+  <img class="background" src="imagens/background.png" alt="salão de beleza">
+
+  <header>
+    <div class="servicos">
+      <img class="logo" src="imagens/logo.PNG" alt="logo do camarin">
+      <ul class="nav-links">
+        <li><a href="#">Sobre nós</a></li>
+        <li><a href="#">Serviços</a></li>
+        <li><a href="#" id="btn-abrir-contato">Fale conosco</a></li>
+      </ul>
+      <a href="#" class="btn-orcamento" id="btn-abrir-modal">Área do Cliente</a>
+    </div>
+
+    <div class="hero-content">
+      <p class="hero-welcome">Bem vindo ao</p>
+      <h1 class="hero-title">CAMARIN</h1>
+      <p class="hero-tagline">A sua autoestima é a nossa melhor assinatura.</p>
+      <div class="hero-divider"></div>
+    </div>
+  </header>
+
+  <!-- MODAL DE ORÇAMENTO -->
+  <div class="modal-overlay" id="modal">
+    <div class="modal-box">
+      <button class="modal-fechar" id="btn-fechar">&times;</button>
+
+      <div class="modal-tabs">
+        <button class="tab-btn active" data-tab="cadastro">Cadastro</button>
+        <button class="tab-btn" data-tab="agendamento">Agendamento</button>
+      </div>
+
+      <!-- ABA CADASTRO -->
+      <div class="tab-content active" id="tab-cadastro">
+        <h2 class="modal-titulo">Cadastro de Cliente</h2>
+        <form action="" method="POST">
+          <div class="campo">
+            <label>Nome</label>
+            <input type="text" name="nome" placeholder="Seu nome completo" required>
+          </div>
+          <div class="campo">
+            <label>E-mail</label>
+            <input type="email" name="email" placeholder="seu@email.com" required>
+          </div>
+          <div class="campo">
+            <label>Telefone</label>
+            <input type="text" name="telefone" placeholder="(00) 00000-0000" required>
+          </div>
+          <button type="submit" class="btn-submit">Cadastrar</button>
+        </form>
+      </div>
+
+      <!-- ABA AGENDAMENTO -->
+      <div class="tab-content" id="tab-agendamento">
+        <h2 class="modal-titulo">Agendar Horário</h2>
+        <form action="" method="POST">
+          <div class="campo">
+            <label>Nome</label>
+            <input type="text" name="nome" placeholder="Seu nome completo" required>
+          </div>
+          <div class="campo">
+            <label>Serviço</label>
+            <select name="servico" required>
+              <option value="">Selecione um serviço</option>
+              <option value="1">Escova + Hidratação</option>
+              <option value="2">Escova + Hidratação + Corte + Sobrancelha</option>
+              <option value="3">Escova + Hidratação + Corte + Sobrancelha + Pé e Mão</option>
+              <option value="4">Aplicação + Hidratação + Corte + Escova + Sobrancelha</option>
+              <option value="5">Selagem</option>
+              <option value="6">Manicure e Pedicure</option>
+              <option value="7">Manicure</option>
+              <option value="8">Pedicure</option>
+            </select>
+          </div>
+          <div class="campo-linha">
+            <div class="campo">
+              <label>Data</label>
+              <input type="date" name="data_agendamento" required>
+            </div>
+            <div class="campo">
+              <label>Horário</label>
+              <select name="hora" required>
+                <option value="">Disponíveis</option>
+                <option>08:00</option><option>09:00</option><option>10:00</option>
+                <option>11:00</option><option>12:00</option><option>13:00</option>
+                <option>14:00</option><option>15:00</option><option>16:00</option>
+                <option>17:00</option><option>18:00</option><option>19:00</option>
+                <option>20:00</option>
+              </select>
+            </div>
+          </div>
+          <div class="campo">
+            <label>Observações</label>
+            <textarea name="observacoes" placeholder="Escreva aqui suas observações..."></textarea>
+          </div>
+          <button type="submit" class="btn-submit">Salvar Agendamento</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL DE FALE CONOSCO -->
+  <div class="modal-overlay" id="modal-contato">
+    <div class="modal-box">
+      <button class="modal-fechar" id="btn-fechar-contato">&times;</button>
+
+      <h2 class="modal-titulo">Fale Conosco</h2>
+
+      <div class="contato-grid">
+
+        <div class="contato-item">
+          <div class="contato-icone">📍</div>
+          <div class="contato-info">
+            <span class="contato-label">Endereço</span>
+            <span>Av. Senador Lemos, 935 - Belém</span>
+          </div>
+        </div>
+
+        <div class="contato-item">
+          <div class="contato-icone">📞</div>
+          <div class="contato-info">
+            <span class="contato-label">Telefone</span>
+            <span>(91) 8139-2726</span>
+          </div>
+        </div>
+
+        <div class="contato-item">
+          <div class="contato-icone">✉️</div>
+          <div class="contato-info">
+            <span class="contato-label">E-mail</span>
+            <span>contato@camarin.com.br</span>
+            <span>agendamento@camarin.com.br</span>
+          </div>
+        </div>
+
+        <div class="contato-item">
+          <div class="contato-icone">🕐</div>
+          <div class="contato-info">
+            <span class="contato-label">Horário de Funcionamento</span>
+            <span>Seg a Sab — 08:00 às 20:00</span>
+            <span class="fechado">Domingo — Fechado</span>
+          </div>
+        </div>
+
+        <div class="contato-item">
+          <div class="contato-icone">📱</div>
+          <div class="contato-info">
+            <span class="contato-label">Redes Sociais</span>
+            <span>Instagram: <strong>@camarincabelereiros
+            </strong></span>
+          </div>
+        </div>
+
+      </div>
+
+      <a href="https://api.whatsapp.com/message/77GA653I6LLXM1?autoload=1&app_absent=0&utm_source=ig" target="_blank" class="btn-submit btn-whatsapp">
+        💬 Chamar no WhatsApp
+      </a>
+
+    </div>
+  </div>
+
+  <script>
+    // Modal orçamento
+    const modal = document.getElementById('modal');
+    document.getElementById('btn-abrir-modal').addEventListener('click', e => { e.preventDefault(); modal.classList.add('aberto'); });
+    document.getElementById('btn-fechar').addEventListener('click', () => modal.classList.remove('aberto'));
+    modal.addEventListener('click', e => { if(e.target === modal) modal.classList.remove('aberto'); });
+
+    // Abas do modal de orçamento
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+      });
+    });
+
+    // Modal contato
+    const modalContato = document.getElementById('modal-contato');
+    document.getElementById('btn-abrir-contato').addEventListener('click', e => { e.preventDefault(); modalContato.classList.add('aberto'); });
+    document.getElementById('btn-fechar-contato').addEventListener('click', () => modalContato.classList.remove('aberto'));
+    modalContato.addEventListener('click', e => { if(e.target === modalContato) modalContato.classList.remove('aberto'); });
+  </script>
+
+</body>
+</html>
