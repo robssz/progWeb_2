@@ -39,10 +39,19 @@
         <button class="tab-btn" data-tab="agendamento">Agendamento</button>
       </div>
 
+      <?php
+        if (isset($erro)) {
+            echo "<p style='color:red;'>$erro</p>";
+        }
+        if (isset($sucesso)) {
+            echo "<p style='color:green;'>$sucesso</p>";
+        }
+    ?>
+          
       <!-- ABA CADASTRO -->
       <div class="tab-content active" id="tab-cadastro">
         <h2 class="modal-titulo">Cadastro de Cliente</h2>
-        <form action="" method="POST">
+        <form action="cadastro.php" method="POST">
           <div class="campo">
             <label>Nome</label>
             <input type="text" name="nome" placeholder="Seu nome completo" required>
@@ -62,7 +71,7 @@
       <!-- ABA AGENDAMENTO -->
       <div class="tab-content" id="tab-agendamento">
         <h2 class="modal-titulo">Agendar Horário</h2>
-        <form action="" method="POST">
+        <form action="agendamento.php" method="POST">
           <div class="campo">
             <label>Nome</label>
             <input type="text" name="nome" placeholder="Seu nome completo" required>
